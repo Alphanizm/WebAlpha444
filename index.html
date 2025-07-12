@@ -322,8 +322,17 @@
                     btn.classList.remove('active');
                 });
                 this.classList.add('active');
-                // Di sini bisa ditambahkan logika filter produk          
+                // Di sini bisa ditambahkan logika filter produk
             });
+        });
+
+        // Filter harga
+        const priceRange = document.getElementById('price-range');
+        priceRange.addEventListener('input', function() {
+            const priceLabel = document.querySelector('.price-filter label');
+            priceLabel.textContent = `Filter Harga: Rp0 - Rp${this.value.toLocaleString('id-ID')}`;
+            // Di sini bisa ditambahkan logika filter berdasarkan harga
+        });
     </script>
 </body>
 </html>
