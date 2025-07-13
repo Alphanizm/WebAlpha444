@@ -304,6 +304,44 @@
             });
         });
 
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const productsContainer = document.getElementById('productsContainer');
+            
+            // Fungsi untuk filter produk berdasarkan kategori
+            function filterProducts(category) {
+                productCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+                    
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Update active button
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.category === category) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            // Event listener untuk setiap tombol kategori
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    filterProducts(category);
+                });
+            });
+            
+            // Inisialisasi - tampilkan semua produk
+            filterProducts('all');
         // Filter kategori
         document.querySelectorAll('.category-btn').forEach(button => {
             button.addEventListener('click', function() {
