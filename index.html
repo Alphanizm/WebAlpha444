@@ -165,11 +165,11 @@
     <div class="container">
         <div class="category-filter">
             <button class="category-btn active">Semua</button>
-            <button class="category-btn" data-category="Script Bug">Script Bug</button>
+            <button class="category-btn">Script Bug</button>
             <button class="category-btn">Website Bug</button>
             <button class="category-btn">Panel</button>
         </div>
-  <div class="products" id="productsContainer"> 
+        
         <div class="price-filter">
             <label for="price-range">Filter Harga: Rp0 - Rp100000</label>
             <input type="range" id="price-range" class="price-range" min="0" max="100000" value="100000">
@@ -177,7 +177,7 @@
 
         <div class="products">
             <!-- Produk 1 -->
-            <div class="product-card" data-category="Script Bug">
+            <div class="product-card">
                 <img src="https://files.catbox.moe/jzzu6g.jpg" alt="X-PROTEX INVICTUS" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">X-PROTEX INVICTUS</h3>
@@ -190,7 +190,7 @@
             </div>
 
             <!-- Produk 2 -->
-            <div class="product-card" data-category="Script Bug">Script Bug</div>
+            <div class="product-card">
                 <img src="https://files.catbox.moe/xu89cq.jpg" alt="Anuuxstream" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">Anuuxstream</h3>
@@ -304,44 +304,6 @@
             });
         });
 
-        
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const productCards = document.querySelectorAll('.product-card');
-            const productsContainer = document.getElementById('productsContainer');
-            
-            // Fungsi untuk filter produk berdasarkan kategori
-            function filterProducts(category) {
-                productCards.forEach(card => {
-                    const cardCategory = card.dataset.category;
-                    
-                    if (category === 'all' || cardCategory === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Update active button
-                categoryButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.category === category) {
-                        btn.classList.add('active');
-                    }
-                });
-            }
-            
-            // Event listener untuk setiap tombol kategori
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.dataset.category;
-                    filterProducts(category);
-                });
-            });
-            
-            // Inisialisasi - tampilkan semua produk
-            filterProducts('all');
         // Filter kategori
         document.querySelectorAll('.category-btn').forEach(button => {
             button.addEventListener('click', function() {
